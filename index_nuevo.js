@@ -8,8 +8,8 @@ const errorhandler =  require('errorhandler');
 
 
 //const url = 'mongodb://localhost:27017/';
-const url = 'mongodb+srv://manuel:12345@702.s3tgn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-//const url = process.env.MONGODB_URL
+//const url = 'mongodb+srv://manuel:12345@702.s3tgn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const url = process.env.MONGODB_URL
 let app  =  express();
 app.use(bodyParser.json());
 app.use(logger('dev'));
@@ -18,7 +18,7 @@ app.use(logger('dev'));
 mongodb.MongoClient.connect(url, (error, database) => {
     //console.log(url);
     if(error) return process.exit(1);
-    const db = database.db('701nosql');
+    const db = database.db('702nosql');
     //console.log("Connection is OK");
 
     app.get('/estudiantes',(req,res)=>{
